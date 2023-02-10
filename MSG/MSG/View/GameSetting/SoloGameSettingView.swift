@@ -15,12 +15,10 @@ struct SoloGameSettingView: View {
     }
     @FocusState private var focusedField: Field?
     let maxConsumeMoney = Int(7)
-    @StateObject private var gameSettingViewModel = GameSettingViewModel()
-    @EnvironmentObject var notiManager: NotificationManager
-    @State private var isShowingAlert: Bool = false
+    @ObservedObject var gameSettingViewModel = GameSettingViewModel()
     @State private var backBtnAlert: Bool = false
-    @EnvironmentObject var fireStoreViewModel: FireStoreViewModel
-    private let dateFormatter = DateFormatter()
+    @State private var isShowingAlert: Bool = false
+    @EnvironmentObject var notiManager: NotificationManager
     @Environment(\.dismiss) var dismiss
     
     // 챌린지 기간 설정 시트
@@ -53,13 +51,9 @@ struct SoloGameSettingView: View {
                                     }
                                     .keyboardType(.default)
                                     .focused($focusedField, equals: .title)
-                                    .onSubmit {
-                                        focusedField = .limitMoney
-                                    }
+                                    .onSubmit { focusedField = .limitMoney }
                                     .submitLabel(.done)
-                                    .onAppear{
-                                        focusedField = .title
-                                    }
+                                    .onAppear{ focusedField = .title }
                                 
                                 Spacer()
                                 
@@ -264,15 +258,13 @@ struct SoloGameSettingView: View {
                             Button("시작하기") {
                                 Task{
                                     if !notiManager.isGranted {
-                                        let singGame = Challenge(id: UUID().uuidString, gameTitle: gameSettingViewModel.title, limitMoney: Int(gameSettingViewModel.targetMoney) ?? 0, startDate:  String(gameSettingViewModel.startDate), endDate:  String(gameSettingViewModel.endDate), inviteFriend: [], waitingFriend: [])
                                         dismiss()
-                                        await fireStoreViewModel.makeSingleGame(singGame)
                                     } else {
                                         print("도전장 보내짐")
                                         let localNotification = LocalNotification(identifier: UUID().uuidString, title: "챌린지가 시작되었습니다!", body: "지출을 추가해 기록을 작성해보세요", timeInterval: 1, repeats: false)
-                                        let singGame = Challenge(id: UUID().uuidString, gameTitle: gameSettingViewModel.title, limitMoney: Int(gameSettingViewModel.targetMoney) ?? 0, startDate:  String(gameSettingViewModel.startDate), endDate:  String(gameSettingViewModel.endDate), inviteFriend: [], waitingFriend: [])
                                         dismiss()
-                                        await fireStoreViewModel.makeSingleGame(singGame)
+                                        // 새롭게 추가
+                                        await gameSettingViewModel.createSingleChallenge()
                                         await notiManager.schedule(localNotification: localNotification)
                                         await notiManager.doSomething()
                                         await notiManager.getPendingRequests()
@@ -345,6 +337,5 @@ struct SoloGameSettingView_Previews: PreviewProvider {
     static var previews: some View {
         SoloGameSettingView()
             .environmentObject(NotificationManager())
-            .environmentObject(FireStoreViewModel())
     }
 }

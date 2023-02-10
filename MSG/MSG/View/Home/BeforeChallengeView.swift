@@ -39,7 +39,7 @@ extension BeforeChallengeView {
                         Spacer()
                     }
                     .frame(width: g.size.width / 1.23)
-                    NavigationLink(destination: SoloGameSettingView()){
+                    NavigationLink(destination: SoloGameSettingView(gameSettingViewModel: AppDI.shared.gameSettingViewModel)){
                         ZStack {
                             RoundedRectangle(cornerRadius: 15)
                                 .stroke(Color("Color1"),

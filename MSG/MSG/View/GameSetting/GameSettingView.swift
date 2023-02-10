@@ -25,16 +25,13 @@ struct GameSettingView: View {
     @EnvironmentObject var fireStoreViewModel: FireStoreViewModel
     @State private var selected: Int = 0
     // Back button 클릭 시, 입력중인 data가 있다면, backBtnAlert
-    @State private var backBtnAlert: Bool = false
+    
     @Environment(\.dismiss) var dismiss
     
+    @State private var backBtnAlert: Bool = false // 네비게이션 뒤로가기 버튼
     @State private var summitAlertToggle: Bool = false // 공백문자만 있으면 띄우는 얼럿
-    
-    // 챌린지 기간 설정 시트
-    @State private var showingDaySelection: Bool = false
-    
-    // 함께할 친구 추가 시트
-    @State private var findFriendToggle: Bool = false
+    @State private var showingDaySelection: Bool = false // 챌린지 기간 설정 시트
+    @State private var findFriendToggle: Bool = false    // 함께할 친구 추가 시트
     
     
     //텍스트필드 공백체크

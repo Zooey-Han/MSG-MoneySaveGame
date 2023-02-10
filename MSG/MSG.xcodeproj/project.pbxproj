@@ -48,6 +48,7 @@
 		16DB66D32988A98C009BF8B7 /* Maplestory OTF Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16DB66D12988A98C009BF8B7 /* Maplestory OTF Bold.otf */; };
 		16DB66D52989282B009BF8B7 /* ListBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DB66D42989282B009BF8B7 /* ListBackgroundModifier.swift */; };
 		16FBE6C62976784D001EC518 /* FriendViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBE6C52976784D001EC518 /* FriendViewCell.swift */; };
+		3607264029960C320088348B /* AppDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3607263F29960C320088348B /* AppDI.swift */; };
 		360A1471298360A70058BB9B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360A1470298360A70058BB9B /* Utils.swift */; };
 		36338AF9298B595A009ABB77 /* DivideFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36338AF8298B595A009ABB77 /* DivideFriendView.swift */; };
 		36338AFB298B5A5D009ABB77 /* DivideFriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36338AFA298B5A5D009ABB77 /* DivideFriendViewModel.swift */; };
@@ -136,6 +137,7 @@
 		16DB66D12988A98C009BF8B7 /* Maplestory OTF Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Maplestory OTF Bold.otf"; sourceTree = "<group>"; };
 		16DB66D42989282B009BF8B7 /* ListBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBackgroundModifier.swift; sourceTree = "<group>"; };
 		16FBE6C52976784D001EC518 /* FriendViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewCell.swift; sourceTree = "<group>"; };
+		3607263F29960C320088348B /* AppDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDI.swift; sourceTree = "<group>"; };
 		360A1470298360A70058BB9B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		36338AF8298B595A009ABB77 /* DivideFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivideFriendView.swift; sourceTree = "<group>"; };
 		36338AFA298B5A5D009ABB77 /* DivideFriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivideFriendViewModel.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				36B093F82976694F0089E76A /* GameSettingView.swift */,
 				3663DF3F29763C51004C1CA6 /* GameSettingViewModel.swift */,
 				3699A3C7298762FE00C650FD /* SoloGameSettingView.swift */,
+				3607263F29960C320088348B /* AppDI.swift */,
 			);
 			path = GameSetting;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				16526E87298BA74000ED023A /* GameRequestAlertViewCell.swift in Sources */,
 				1642F3FC298E893D0085FF00 /* MultiProgressBar.swift in Sources */,
 				36352762298299F80037BD1B /* CustomAlertView.swift in Sources */,
+				3607264029960C320088348B /* AppDI.swift in Sources */,
 				16DB66D52989282B009BF8B7 /* ListBackgroundModifier.swift in Sources */,
 				165E321C2977EAF500678A09 /* SettingView.swift in Sources */,
 				36B093FC29766FD80089E76A /* SpendingWritingView.swift in Sources */,

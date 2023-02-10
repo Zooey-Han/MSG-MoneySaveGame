@@ -10,6 +10,11 @@ import FirebaseFirestore
 import FirebaseAuth
 import Combine
 
+
+
+
+
+
 final class DivideFriendViewModel: ObservableObject {
     //
     @Published var baseUserArray: [Msg] = [] // 화면에 보여지는 실제 목록
