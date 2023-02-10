@@ -19,4 +19,12 @@ extension String {
 //        print(Date().timeIntervalSince1970)
         return dateFormatter.string(from: dateCreatedAt)
     }
+    
+    var trimSpacingCount:Int{
+        return self.trimmingCharacters(in: .whitespaces).count
+    }
+
 }
+
+
+

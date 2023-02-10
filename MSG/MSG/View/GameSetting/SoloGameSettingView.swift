@@ -105,11 +105,6 @@ struct SoloGameSettingView: View {
                                         .foregroundColor(Color(.clear))
                                         .kerning(+1.5)
                                         .keyboardType(.numberPad)
-                                        .onReceive(Just(gameSettingViewModel.targetMoney), perform: { _ in
-                                            if maxConsumeMoney < gameSettingViewModel.targetMoney.count {
-                                                gameSettingViewModel.targetMoney = String(gameSettingViewModel.targetMoney.prefix(maxConsumeMoney))
-                                            }
-                                        })
                                 }
                                 .frame(width: g.size.width / 1.4, height: g.size.height / 40)
                                 
@@ -178,7 +173,6 @@ struct SoloGameSettingView: View {
                                                             gameSettingViewModel.daySelection = index
                                                             gameSettingViewModel.startDate = Date().timeIntervalSince1970
                                                             gameSettingViewModel.endDate = gameSettingViewModel.startDate + Double(86400) * gameSettingViewModel.dayMultiArray[index]
-                                                            print("\(gameSettingViewModel.startDate - gameSettingViewModel.endDate)")
                                                         } label: {
                                                             Text("\(gameSettingViewModel.dayArray[index])")
                                                                 .frame(width: g.size.width / 7, height: g.size.height / 20)
@@ -234,12 +228,10 @@ struct SoloGameSettingView: View {
                     Spacer()
                     VStack {
                         Button {
-                            if gameSettingViewModel.daySelection != 5 {
                                 isShowingAlert = true
-                            }
                         } label: {
                             Text("시작하기")
-                                .modifier(gameSettingViewModel.title.isEmpty || gameSettingViewModel.targetMoney.isEmpty || gameSettingViewModel.daySelection == 5 ? TextModifier(fontWeight: FontCustomWeight.bold, fontType: FontCustomType.title3, color: FontCustomColor.color3) : TextModifier(fontWeight: FontCustomWeight.bold, fontType: FontCustomType.title3, color: FontCustomColor.color2))
+                                .modifier( !gameSettingViewModel.isGameSettingValid ? TextModifier(fontWeight: FontCustomWeight.bold, fontType: FontCustomType.title3, color: FontCustomColor.color3) : TextModifier(fontWeight: FontCustomWeight.bold, fontType: FontCustomType.title3, color: FontCustomColor.color2))
                         }
                         .buttonStyle(.borderless)
                         .frame(width: g.size.width / 1.4, height: g.size.height / 14)
@@ -281,16 +273,13 @@ struct SoloGameSettingView: View {
                         }
                     })
                     Spacer()
-                    //                    }
-                    //                    .frame(width: g.size.width / 1.2, height: g.size.height / 1.7)
-                    //
-                    //                    Spacer()
                     
                 }
                 .frame(width: g.size.width / 1.2, height: g.size.height / 1.2)
                 .modifier(TextModifier(fontWeight: FontCustomWeight.normal, fontType: FontCustomType.body, color: FontCustomColor.color2))
             }
             .onAppear {
+                //(1)날짜 셋팅 초기화
                 gameSettingViewModel.daySelection = 5
                 gameSettingViewModel.startDate = Date().timeIntervalSince1970 + gameSettingViewModel.dayMultiArray[0]
                 gameSettingViewModel.endDate = gameSettingViewModel.startDate + Double(86400) * gameSettingViewModel.dayMultiArray[0]

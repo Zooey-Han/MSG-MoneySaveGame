@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 
+
 struct GameSettingView: View {
     
     enum Field: Hashable {
@@ -15,8 +16,6 @@ struct GameSettingView: View {
         case limitMoney
     }
     @FocusState private var focusedField: Field?
-    
-    let maxConsumeMoney = Int(7)
     @EnvironmentObject var notiManager: NotificationManager
     @StateObject private var gameSettingViewModel = GameSettingViewModel()
     @State private var isShowingAlert: Bool = false
@@ -33,7 +32,7 @@ struct GameSettingView: View {
     @State private var showingDaySelection: Bool = false // 챌린지 기간 설정 시트
     @State private var findFriendToggle: Bool = false    // 함께할 친구 추가 시트
     
-    
+
     //텍스트필드 공백체크
     private var trimsTitleTextField: String {
         gameSettingViewModel.title.trimmingCharacters(in: .whitespaces)
@@ -134,11 +133,6 @@ extension GameSettingView {
                                         .foregroundColor(Color(.clear))
                                         .kerning(+1.5)
                                         .keyboardType(.numberPad)
-                                        .onReceive(Just(gameSettingViewModel.targetMoney), perform: { _ in
-                                            if maxConsumeMoney < gameSettingViewModel.targetMoney.count {
-                                                gameSettingViewModel.targetMoney = String(gameSettingViewModel.targetMoney.prefix(maxConsumeMoney))
-                                            }
-                                        })
                                 }
                                 .frame(width: g.size.width / 1.4, height: g.size.height / 40)
                                 
@@ -277,14 +271,6 @@ extension GameSettingView {
                                                 .padding(6)
                                                 .background(Color("Color2"))
                                                 .cornerRadius(7)
-                                           
-                                               
-//                                            Button {
-//                                                // min
-//                                            } label: {
-//                                                Image(systemName: "minus")
-//                                            }
-                                      
                                         }
                                         .listRowBackground(Color("Color1"))
                                     }
@@ -338,7 +324,7 @@ extension GameSettingView {
                             }
                         } label: {
                             Text("초대장 보내기")
-                                .modifier(gameSettingViewModel.title.isEmpty || gameSettingViewModel.targetMoney.isEmpty || gameSettingViewModel.daySelection == 5 || realtimeViewModel.inviteFriendArray.isEmpty ? TextModifier(fontWeight: FontCustomWeight.bold, fontType: FontCustomType.title3, color: FontCustomColor.color3) : TextModifier(fontWeight: FontCustomWeight.bold, fontType: FontCustomType.title3, color: FontCustomColor.color2))
+                                .modifier(!gameSettingViewModel.isGameSettingValid || realtimeViewModel.inviteFriendArray.isEmpty ? TextModifier(fontWeight: FontCustomWeight.bold, fontType: FontCustomType.title3, color: FontCustomColor.color3) : TextModifier(fontWeight: FontCustomWeight.bold, fontType: FontCustomType.title3, color: FontCustomColor.color2))
                         }
                         .buttonStyle(.borderless)
                         .frame(width: g.size.width / 1.4, height: g.size.height / 14)
@@ -384,7 +370,6 @@ extension GameSettingView {
                             inviteFriend: [], waitingFriend: realtimeViewModel.inviteFriendIdArray)
                         await fireStoreViewModel.addMultiGame(challenge)
                         guard let myInfo = fireStoreViewModel.myInfo else { return }
-                        print(realtimeViewModel.inviteFriendArray)
                         realtimeViewModel.sendFightRequest(to: realtimeViewModel.inviteFriendArray, from: myInfo, isFight: true)
                         dismiss()
                     } else {

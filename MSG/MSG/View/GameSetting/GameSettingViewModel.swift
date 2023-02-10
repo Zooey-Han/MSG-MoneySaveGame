@@ -41,10 +41,6 @@ struct FirestoreService:FirestoreServiceInterface{
         let userInfo = Msg(id: snapshot.documentID, nickName: nickName, profileImage: profileImage, game: game, gameHistory: gameHistory)
         return userInfo
     }
-    
-    
-    
-    
     // [ChallengeRepo]
     // MARK: - 싱글게임 추가 함수
     func addSingleGame(_ singleGame: Challenge) {
@@ -94,11 +90,6 @@ struct FirestoreService:FirestoreServiceInterface{
             return nil
         }
     }
-    
-    
-    
-    
-    
     // 한국어 패치된 현재 날짜
     func KoreanDateNow(date : Date) -> String {
         let dateFormatter = DateFormatter()
@@ -178,7 +169,14 @@ final class GameSettingViewModel:ObservableObject, GameSettingViewModelInput, Ga
     //[property]
     let day:Double = 86400
     @Published var title = ""
-    @Published var targetMoney = ""
+    
+    @Published var targetMoney = ""{
+        didSet{
+            if self.targetMoney.count > 7{
+                targetMoney = String(targetMoney.prefix(7))
+            }
+        }
+    }
     @Published var startDate:Double = Date().timeIntervalSince1970
     @Published var endDate:Double = Date().timeIntervalSince1970
     @Published var isGameSettingValid = false
@@ -201,10 +199,11 @@ final class GameSettingViewModel:ObservableObject, GameSettingViewModelInput, Ga
     // 싱글게임생성
     func createSingleChallenge() async {
         let challenge = Challenge(id: UUID().uuidString, gameTitle: title, limitMoney: Int(targetMoney)!,
-                               startDate: String(startDate), endDate: String(endDate), inviteFriend: [], waitingFriend: [])
+                                  startDate: String(startDate), endDate: String(endDate), inviteFriend: [], waitingFriend: [])
         await challengeUseCase?.excuteMakeSingleChallenge(challenge)
+        resetInputData()
     }
-    
+
 }
 
 extension GameSettingViewModel{
@@ -220,10 +219,19 @@ extension GameSettingViewModel{
         
     }
     
+    var isDaySelectionValidPublisher: AnyPublisher<Bool,Never>{
+        $daySelection
+            .map{ day in
+                return day != 5
+            }
+            .eraseToAnyPublisher()
+        
+    }
+    
     var isTitleValidPublisher: AnyPublisher<Bool,Never>{
         $title
             .map{ name in
-                return name.count >= 1
+                return name.trimSpacingCount >= 1
             }
             .eraseToAnyPublisher()
     }
@@ -231,14 +239,16 @@ extension GameSettingViewModel{
     var isTargetMoneyValidPublisher: AnyPublisher<Bool,Never>{
         $targetMoney
             .map{ money in
-                return money.count >= 1 && Int(money) != nil
+                return money.trimSpacingCount >= 1 && Int(money) != nil
             }
             .eraseToAnyPublisher()
+       
     }
     
+    
     var isGameSettingValidPublisher: AnyPublisher<Bool,Never>{
-        Publishers.CombineLatest(isTitleValidPublisher, isTargetMoneyValidPublisher).map{ title, targetMoney in
-            return title && targetMoney
+        Publishers.CombineLatest3(isTitleValidPublisher, isTargetMoneyValidPublisher, isDaySelectionValidPublisher).map{ title, targetMoney, day in
+            return title && targetMoney && day
         }
         .eraseToAnyPublisher()
     }
