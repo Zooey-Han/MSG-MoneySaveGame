@@ -14,7 +14,6 @@ struct SoloGameSettingView: View {
         case limitMoney
     }
     @FocusState private var focusedField: Field?
-    let maxConsumeMoney = Int(7)
     @ObservedObject var gameSettingViewModel = GameSettingViewModel()
     @State private var backBtnAlert: Bool = false
     @State private var isShowingAlert: Bool = false

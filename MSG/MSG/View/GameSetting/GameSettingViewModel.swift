@@ -165,7 +165,6 @@ protocol GameSettingViewModelOutput{
 
 // View와 ViewModel 사이는 Combine으로 Data Binding 처리
 final class GameSettingViewModel:ObservableObject, GameSettingViewModelInput, GameSettingViewModelOutput{
-   
     //[property]
     let day:Double = 86400
     @Published var title = ""
@@ -207,7 +206,6 @@ final class GameSettingViewModel:ObservableObject, GameSettingViewModelInput, Ga
 }
 
 extension GameSettingViewModel{
-    
     func resetInputData (){
         DispatchQueue.main.async {
             self.title = ""
@@ -219,14 +217,7 @@ extension GameSettingViewModel{
         
     }
     
-    var isDaySelectionValidPublisher: AnyPublisher<Bool,Never>{
-        $daySelection
-            .map{ day in
-                return day != 5
-            }
-            .eraseToAnyPublisher()
-        
-    }
+
     
     var isTitleValidPublisher: AnyPublisher<Bool,Never>{
         $title
@@ -245,6 +236,14 @@ extension GameSettingViewModel{
        
     }
     
+    var isDaySelectionValidPublisher: AnyPublisher<Bool,Never>{
+        $daySelection
+            .map{ day in
+                return day != 5
+            }
+            .eraseToAnyPublisher()
+        
+    }
     
     var isGameSettingValidPublisher: AnyPublisher<Bool,Never>{
         Publishers.CombineLatest3(isTitleValidPublisher, isTargetMoneyValidPublisher, isDaySelectionValidPublisher).map{ title, targetMoney, day in

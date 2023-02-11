@@ -182,7 +182,6 @@ extension GameSettingView {
                                 Button {
                                     showingDaySelection.toggle()
                                 } label: {
-
                                     Image(systemName: "chevron.backward")
                                         .rotationEffect(.degrees(-90))
                                         .foregroundColor(gameSettingViewModel.daySelection == 5 ? Color("Color3") : Color("Color2"))
