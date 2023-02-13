@@ -105,21 +105,11 @@ class FriendViewModel: ObservableObject {
     
     // MARK: - 친구 목록 가져오기
     @MainActor
-<<<<<<< Updated upstream:MSG/MSG/View/FriendSetting/FriendViewModel.swift
     func findFriend() async throws {
         print(#function)
         self.myFrinedArray.removeAll()
         self.friendIdArray.removeAll()
         guard let userId = Auth.auth().currentUser?.uid else{ return  }
-=======
-    func findFriend() async throws -> ([Msg],[String]){
-        print("Impl",#function)
-        var friendIdArray: [String] = []
-        var friendArray: [Msg] = []
-        //            self.myFrinedArray.removeAll()
-        //            self.friendIdArray.removeAll()
-        guard let userId = Auth.auth().currentUser?.uid else{ return ([],[])  }
->>>>>>> Stashed changes:MSG/MSG/Data/DataSource/FirebaseService.swift
         let snapshot = try await database.collection("User").document(userId).collection("friend").getDocuments()
         for document in snapshot.documents{
             let id: String = document.documentID
@@ -129,34 +119,11 @@ class FriendViewModel: ObservableObject {
             let game: String = docData["game"] as? String ?? ""
             let gameHistory: [String] = docData["gameHistory"] as? [String] ?? []
             let getUser: Msg = Msg(id: id, nickName: nickName, profileImage: profileImage, game: game, gameHistory: gameHistory)
-<<<<<<< Updated upstream:MSG/MSG/View/FriendSetting/FriendViewModel.swift
             if !self.myFrinedArray.contains(getUser){ self.myFrinedArray.append(getUser) }
             self.friendIdArray.append(id)
             
             //            print("findFriend:",self.myFrinedArray)
             //            print("받는중이지롱:",self.myFrinedArray)
-=======
-//            if !friend.contains(getUser){
-//                friendArray.append(getUser)
-//            }
-//            else {
-//
-//            }
-            friendArray.append(getUser)
-            friendIdArray.append(id)
->>>>>>> Stashed changes:MSG/MSG/Data/DataSource/FirebaseService.swift
         }
     }
 }
-<<<<<<< Updated upstream:MSG/MSG/View/FriendSetting/FriendViewModel.swift
-=======
-
-//
-
-extension FirebaseService: ChallengeFriendDataSource {
-
-}
-
-
-//
->>>>>>> Stashed changes:MSG/MSG/Data/DataSource/FirebaseService.swift

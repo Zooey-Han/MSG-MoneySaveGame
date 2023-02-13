@@ -10,12 +10,6 @@
 		161286B7297D227800BC3BDF /* FriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161286B6297D227800BC3BDF /* FriendViewModel.swift */; };
 		161398FC2983F863002A6F16 /* SpendingWriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161398FB2983F863002A6F16 /* SpendingWriteViewModel.swift */; };
 		161716B52993857F00CC4901 /* WaitingCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161716B42993857F00CC4901 /* WaitingCountView.swift */; };
-		163CB2C0299A03D6008506FD /* AlertViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CB2BF299A03D6008506FD /* AlertViewModel.swift */; };
-		163CB2C2299A04A7008506FD /* FriendListenerUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CB2C1299A04A7008506FD /* FriendListenerUseCase.swift */; };
-		163CB2C4299A051E008506FD /* FriendListenerRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CB2C3299A051E008506FD /* FriendListenerRepository.swift */; };
-		163CB2C6299A0595008506FD /* RealtimeListenerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CB2C5299A0595008506FD /* RealtimeListenerDataSource.swift */; };
-		163CB2C8299A05CD008506FD /* RealtimeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CB2C7299A05CD008506FD /* RealtimeService.swift */; };
-		163CB2CA299A05E2008506FD /* FriendListenerRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 163CB2C9299A05E2008506FD /* FriendListenerRepositoryImpl.swift */; };
 		1642F3FC298E893D0085FF00 /* MultiProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1642F3FB298E893D0085FF00 /* MultiProgressBar.swift */; };
 		16526E87298BA74000ED023A /* GameRequestAlertViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16526E86298BA74000ED023A /* GameRequestAlertViewCell.swift */; };
 		165541E8298CC19600500895 /* ChallengeProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165541E7298CC19600500895 /* ChallengeProgressView.swift */; };
@@ -39,7 +33,7 @@
 		1660098D29763AD800E6A546 /* MSG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660098C29763AD800E6A546 /* MSG.swift */; };
 		1660098F2976404400E6A546 /* RealtimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660098E2976404400E6A546 /* RealtimeViewModel.swift */; };
 		166009932976685200E6A546 /* FriendSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166009922976685200E6A546 /* FriendSettingView.swift */; };
-		1660099529766FC000E6A546 /* ChallengeFriendSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660099429766FC000E6A546 /* ChallengeFriendSheetView.swift */; };
+		1660099529766FC000E6A546 /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660099429766FC000E6A546 /* FriendView.swift */; };
 		1660099729766FCC00E6A546 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1660099629766FCC00E6A546 /* AlertView.swift */; };
 		168AE7A629875EA400D68C1C /* WaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AE7A529875EA400D68C1C /* WaitingView.swift */; };
 		168AE7A829875EB600D68C1C /* WaitingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168AE7A729875EB600D68C1C /* WaitingViewModel.swift */; };
@@ -53,20 +47,10 @@
 		16DB66D22988A98C009BF8B7 /* Maplestory OTF Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16DB66D02988A98C009BF8B7 /* Maplestory OTF Light.otf */; };
 		16DB66D32988A98C009BF8B7 /* Maplestory OTF Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 16DB66D12988A98C009BF8B7 /* Maplestory OTF Bold.otf */; };
 		16DB66D52989282B009BF8B7 /* ListBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16DB66D42989282B009BF8B7 /* ListBackgroundModifier.swift */; };
-<<<<<<< Updated upstream
 		16FBE6C62976784D001EC518 /* FriendViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBE6C52976784D001EC518 /* FriendViewCell.swift */; };
 		3607264029960C320088348B /* AppDI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3607263F29960C320088348B /* AppDI.swift */; };
-=======
-		16FBE6C62976784D001EC518 /* ChallengeFriendViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16FBE6C52976784D001EC518 /* ChallengeFriendViewCell.swift */; };
-		3602CBC22999FD88007D1034 /* ChallengeFriendUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3602CBC12999FD88007D1034 /* ChallengeFriendUseCase.swift */; };
-		3602CBC52999FF16007D1034 /* ChallengeFriendRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3602CBC42999FF16007D1034 /* ChallengeFriendRepositoryImpl.swift */; };
-		3602CBC82999FF49007D1034 /* ChallengeFriendRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3602CBC72999FF49007D1034 /* ChallengeFriendRepository.swift */; };
-		3602CBCB2999FF99007D1034 /* ChallengeFriendDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3602CBCA2999FF99007D1034 /* ChallengeFriendDataSource.swift */; };
-		3602CBCD2999FFC3007D1034 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3602CBCC2999FFC3007D1034 /* FirebaseService.swift */; };
-		3602CBCF299A0099007D1034 /* ChallengeFriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3602CBCE299A0099007D1034 /* ChallengeFriendViewModel.swift */; };
->>>>>>> Stashed changes
 		360A1471298360A70058BB9B /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360A1470298360A70058BB9B /* Utils.swift */; };
-		36338AF9298B595A009ABB77 /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36338AF8298B595A009ABB77 /* FriendView.swift */; };
+		36338AF9298B595A009ABB77 /* DivideFriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36338AF8298B595A009ABB77 /* DivideFriendView.swift */; };
 		36338AFB298B5A5D009ABB77 /* DivideFriendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36338AFA298B5A5D009ABB77 /* DivideFriendViewModel.swift */; };
 		36338AFD298B5B22009ABB77 /* DivideFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36338AFC298B5B22009ABB77 /* DivideFriendCell.swift */; };
 		36352762298299F80037BD1B /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36352761298299F80037BD1B /* CustomAlertView.swift */; };
@@ -124,12 +108,6 @@
 		161286B6297D227800BC3BDF /* FriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewModel.swift; sourceTree = "<group>"; };
 		161398FB2983F863002A6F16 /* SpendingWriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendingWriteViewModel.swift; sourceTree = "<group>"; };
 		161716B42993857F00CC4901 /* WaitingCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingCountView.swift; sourceTree = "<group>"; };
-		163CB2BF299A03D6008506FD /* AlertViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewModel.swift; sourceTree = "<group>"; };
-		163CB2C1299A04A7008506FD /* FriendListenerUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListenerUseCase.swift; sourceTree = "<group>"; };
-		163CB2C3299A051E008506FD /* FriendListenerRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListenerRepository.swift; sourceTree = "<group>"; };
-		163CB2C5299A0595008506FD /* RealtimeListenerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeListenerDataSource.swift; sourceTree = "<group>"; };
-		163CB2C7299A05CD008506FD /* RealtimeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealtimeService.swift; sourceTree = "<group>"; };
-		163CB2C9299A05E2008506FD /* FriendListenerRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendListenerRepositoryImpl.swift; sourceTree = "<group>"; };
 		1642F3FB298E893D0085FF00 /* MultiProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiProgressBar.swift; sourceTree = "<group>"; };
 		16526E86298BA74000ED023A /* GameRequestAlertViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRequestAlertViewCell.swift; sourceTree = "<group>"; };
 		165541E7298CC19600500895 /* ChallengeProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeProgressView.swift; sourceTree = "<group>"; };
@@ -145,7 +123,7 @@
 		1660098C29763AD800E6A546 /* MSG.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MSG.swift; path = MSG/MSG.swift; sourceTree = SOURCE_ROOT; };
 		1660098E2976404400E6A546 /* RealtimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealtimeViewModel.swift; path = MSG/RealtimeViewModel.swift; sourceTree = SOURCE_ROOT; };
 		166009922976685200E6A546 /* FriendSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendSettingView.swift; sourceTree = "<group>"; };
-		1660099429766FC000E6A546 /* ChallengeFriendSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeFriendSheetView.swift; sourceTree = "<group>"; };
+		1660099429766FC000E6A546 /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
 		1660099629766FCC00E6A546 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		168AE7A529875EA400D68C1C /* WaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingView.swift; sourceTree = "<group>"; };
 		168AE7A729875EB600D68C1C /* WaitingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingViewModel.swift; sourceTree = "<group>"; };
@@ -158,20 +136,10 @@
 		16DB66D02988A98C009BF8B7 /* Maplestory OTF Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Maplestory OTF Light.otf"; sourceTree = "<group>"; };
 		16DB66D12988A98C009BF8B7 /* Maplestory OTF Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Maplestory OTF Bold.otf"; sourceTree = "<group>"; };
 		16DB66D42989282B009BF8B7 /* ListBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListBackgroundModifier.swift; sourceTree = "<group>"; };
-<<<<<<< Updated upstream
 		16FBE6C52976784D001EC518 /* FriendViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewCell.swift; sourceTree = "<group>"; };
 		3607263F29960C320088348B /* AppDI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDI.swift; sourceTree = "<group>"; };
-=======
-		16FBE6C52976784D001EC518 /* ChallengeFriendViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeFriendViewCell.swift; sourceTree = "<group>"; };
-		3602CBC12999FD88007D1034 /* ChallengeFriendUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeFriendUseCase.swift; sourceTree = "<group>"; };
-		3602CBC42999FF16007D1034 /* ChallengeFriendRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeFriendRepositoryImpl.swift; sourceTree = "<group>"; };
-		3602CBC72999FF49007D1034 /* ChallengeFriendRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeFriendRepository.swift; sourceTree = "<group>"; };
-		3602CBCA2999FF99007D1034 /* ChallengeFriendDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeFriendDataSource.swift; sourceTree = "<group>"; };
-		3602CBCC2999FFC3007D1034 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
-		3602CBCE299A0099007D1034 /* ChallengeFriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeFriendViewModel.swift; sourceTree = "<group>"; };
->>>>>>> Stashed changes
 		360A1470298360A70058BB9B /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		36338AF8298B595A009ABB77 /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
+		36338AF8298B595A009ABB77 /* DivideFriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivideFriendView.swift; sourceTree = "<group>"; };
 		36338AFA298B5A5D009ABB77 /* DivideFriendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivideFriendViewModel.swift; sourceTree = "<group>"; };
 		36338AFC298B5B22009ABB77 /* DivideFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DivideFriendCell.swift; sourceTree = "<group>"; };
 		36352761298299F80037BD1B /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
@@ -254,14 +222,14 @@
 			children = (
 				1660099629766FCC00E6A546 /* AlertView.swift */,
 				166009922976685200E6A546 /* FriendSettingView.swift */,
-				1660099429766FC000E6A546 /* ChallengeFriendSheetView.swift */,
-				16FBE6C52976784D001EC518 /* ChallengeFriendViewCell.swift */,
+				1660099429766FC000E6A546 /* FriendView.swift */,
+				16FBE6C52976784D001EC518 /* FriendViewCell.swift */,
 				634CE3F6297920D500358E32 /* SegementedControllView.swift */,
 				161286B6297D227800BC3BDF /* FriendViewModel.swift */,
 				367D709C2980C6890011E601 /* GameRequestAlertView.swift */,
 				36352761298299F80037BD1B /* CustomAlertView.swift */,
 				3635276329829C6E0037BD1B /* CustomAlertButton.swift */,
-				36338AF8298B595A009ABB77 /* FriendView.swift */,
+				36338AF8298B595A009ABB77 /* DivideFriendView.swift */,
 				36338AFA298B5A5D009ABB77 /* DivideFriendViewModel.swift */,
 				36338AFC298B5B22009ABB77 /* DivideFriendCell.swift */,
 				16526E86298BA74000ED023A /* GameRequestAlertViewCell.swift */,
@@ -440,179 +408,6 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-<<<<<<< Updated upstream
-=======
-		3602CBAE2999F994007D1034 /* Resource */ = {
-			isa = PBXGroup;
-			children = (
-				C0F5FFCE2977B7FF0021FF4F /* MSG.entitlements */,
-				168CDEF5298CD1C200FAA3F4 /* ambulance.json */,
-				168CDEF7298CD53900FAA3F4 /* flyingMoney.json */,
-				168CDEF8298CD53900FAA3F4 /* run.json */,
-				6342C2C42976446600C24D20 /* Info.plist */,
-				16573EDA2977AA38001176F6 /* GoogleService-Info.plist */,
-				16600968297630C400E6A546 /* Preview Content */,
-				16DB66CF2988A951009BF8B7 /* Fonts */,
-				16600966297630C400E6A546 /* Assets.xcassets */,
-			);
-			path = Resource;
-			sourceTree = "<group>";
-		};
-		3602CBAF2999F9C1007D1034 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				3602CBC92999FF88007D1034 /* DataSource */,
-				3602CBC32999FEE5007D1034 /* Repository */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
-		3602CBB22999F9F9007D1034 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				3602CBC62999FF28007D1034 /* RepositoryInterface */,
-				3602CBB42999FA13007D1034 /* UseCase */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		3602CBB32999F9FE007D1034 /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				166009862976334C00E6A546 /* ViewModel */,
-				166009852976334600E6A546 /* View */,
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
-		3602CBB42999FA13007D1034 /* UseCase */ = {
-			isa = PBXGroup;
-			children = (
-				163CB2C1299A04A7008506FD /* FriendListenerUseCase.swift */,
-				3602CBC12999FD88007D1034 /* ChallengeFriendUseCase.swift */,
-				166009872976335A00E6A546 /* Model */,
-			);
-			path = UseCase;
-			sourceTree = "<group>";
-		};
-		3602CBB52999FA20007D1034 /* Applicatin */ = {
-			isa = PBXGroup;
-			children = (
-				16600962297630C300E6A546 /* MSGApp.swift */,
-			);
-			path = Applicatin;
-			sourceTree = "<group>";
-		};
-		3602CBB62999FA34007D1034 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				16DB66D42989282B009BF8B7 /* ListBackgroundModifier.swift */,
-				63EC446E297A8366008A7FDE /* Extension+String.swift */,
-				16C6753529822E420028A608 /* Extension+Color.swift */,
-				63690D3B298CCF0400B48DA4 /* Extension+View.swift */,
-				6310324A2978322900F3A463 /* Extension+NavigationController.swift */,
-				36DB97782976526900A0596F /* ViewModifier.swift */,
-				360A1470298360A70058BB9B /* Utils.swift */,
-			);
-			path = Util;
-			sourceTree = "<group>";
-		};
-		3602CBB72999FA8E007D1034 /* LottieView */ = {
-			isa = PBXGroup;
-			children = (
-				168CDEF0298CD12200FAA3F4 /* LottieView.swift */,
-			);
-			path = LottieView;
-			sourceTree = "<group>";
-		};
-		3602CBB82999FC23007D1034 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		3602CBB92999FC2F007D1034 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		3602CBBA2999FC3C007D1034 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		3602CBBB2999FC46007D1034 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		3602CBBC2999FC4C007D1034 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		3602CBBD2999FC53007D1034 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		3602CBBE2999FC58007D1034 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				3602CBCE299A0099007D1034 /* ChallengeFriendViewModel.swift */,
-				163CB2BF299A03D6008506FD /* AlertViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		3602CBBF2999FC5E007D1034 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		3602CBC32999FEE5007D1034 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				3602CBC42999FF16007D1034 /* ChallengeFriendRepositoryImpl.swift */,
-				163CB2C9299A05E2008506FD /* FriendListenerRepositoryImpl.swift */,
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
-		3602CBC62999FF28007D1034 /* RepositoryInterface */ = {
-			isa = PBXGroup;
-			children = (
-				3602CBC72999FF49007D1034 /* ChallengeFriendRepository.swift */,
-				163CB2C3299A051E008506FD /* FriendListenerRepository.swift */,
-			);
-			path = RepositoryInterface;
-			sourceTree = "<group>";
-		};
-		3602CBC92999FF88007D1034 /* DataSource */ = {
-			isa = PBXGroup;
-			children = (
-				3602CBCA2999FF99007D1034 /* ChallengeFriendDataSource.swift */,
-				3602CBCC2999FFC3007D1034 /* FirebaseService.swift */,
-				163CB2C5299A0595008506FD /* RealtimeListenerDataSource.swift */,
-				163CB2C7299A05CD008506FD /* RealtimeService.swift */,
-			);
-			path = DataSource;
-			sourceTree = "<group>";
-		};
->>>>>>> Stashed changes
 		36C7BB762977B37200A3F999 /* OnBoard */ = {
 			isa = PBXGroup;
 			children = (
@@ -757,14 +552,8 @@
 			files = (
 				63690D3C298CCF0400B48DA4 /* Extension+View.swift in Sources */,
 				63EC446F297A8366008A7FDE /* Extension+String.swift in Sources */,
-<<<<<<< Updated upstream
-=======
-				3602CBC82999FF49007D1034 /* ChallengeFriendRepository.swift in Sources */,
-				163CB2C0299A03D6008506FD /* AlertViewModel.swift in Sources */,
-				163CB2C8299A05CD008506FD /* RealtimeService.swift in Sources */,
->>>>>>> Stashed changes
 				635D1129298DFDB000C4EDEC /* DeepConcaveView.swift in Sources */,
-				36338AF9298B595A009ABB77 /* FriendView.swift in Sources */,
+				36338AF9298B595A009ABB77 /* DivideFriendView.swift in Sources */,
 				6342C2C7297648CB00C24D20 /* KakaoAppDelegate.swift in Sources */,
 				6362E8CB2989574B0052C488 /* TabBarView.swift in Sources */,
 				63691A3D299210E4007CC706 /* LicenseItem.swift in Sources */,
@@ -780,24 +569,14 @@
 				6342C2C329763B0D00C24D20 /* LoginView.swift in Sources */,
 				161286B7297D227800BC3BDF /* FriendViewModel.swift in Sources */,
 				63B99D31297E32640038BAB4 /* SingleGameProgressBar.swift in Sources */,
-<<<<<<< Updated upstream
-=======
-				3602CBCF299A0099007D1034 /* ChallengeFriendViewModel.swift in Sources */,
->>>>>>> Stashed changes
 				635D1127298DFD3000C4EDEC /* ShallowConcaveView.swift in Sources */,
-				163CB2CA299A05E2008506FD /* FriendListenerRepositoryImpl.swift in Sources */,
-				16FBE6C62976784D001EC518 /* ChallengeFriendViewCell.swift in Sources */,
+				16FBE6C62976784D001EC518 /* FriendViewCell.swift in Sources */,
 				36FA49132977746600B26A24 /* ChartView.swift in Sources */,
 				367D709D2980C6890011E601 /* GameRequestAlertView.swift in Sources */,
 				632B7CD129825C8000A3D53C /* CountDownView.swift in Sources */,
 				635D112B298DFE7000C4EDEC /* DarkModeToggle.swift in Sources */,
 				1660099729766FCC00E6A546 /* AlertView.swift in Sources */,
 				4C930D5F29763B4300EE046D /* HomeView.swift in Sources */,
-<<<<<<< Updated upstream
-=======
-				3602CBCD2999FFC3007D1034 /* FirebaseService.swift in Sources */,
-				3602CBC52999FF16007D1034 /* ChallengeFriendRepositoryImpl.swift in Sources */,
->>>>>>> Stashed changes
 				3635276429829C6E0037BD1B /* CustomAlertButton.swift in Sources */,
 				36C7BB802977B37200A3F999 /* OnBoardView3.swift in Sources */,
 				168AE7A829875EB600D68C1C /* WaitingViewModel.swift in Sources */,
@@ -817,24 +596,15 @@
 				165541EA298CC47900500895 /* ProgressBar2.swift in Sources */,
 				6342C2CB29764EDA00C24D20 /* KakaoViewModel.swift in Sources */,
 				1660098F2976404400E6A546 /* RealtimeViewModel.swift in Sources */,
-<<<<<<< Updated upstream
 				1660098D29763AD800E6A546 /* MSG.swift in Sources */,
 				166009932976685200E6A546 /* FriendSettingView.swift in Sources */,
-=======
-				163CB2C2299A04A7008506FD /* FriendListenerUseCase.swift in Sources */,
-				3602CBCB2999FF99007D1034 /* ChallengeFriendDataSource.swift in Sources */,
-				1660098D29763AD800E6A546 /* MSG.swift in Sources */,
-				166009932976685200E6A546 /* FriendSettingView.swift in Sources */,
-				3602CBC22999FD88007D1034 /* ChallengeFriendUseCase.swift in Sources */,
->>>>>>> Stashed changes
 				4C5B81832977750C00866E3F /* RecordDetailView.swift in Sources */,
 				168AE7A629875EA400D68C1C /* WaitingView.swift in Sources */,
-				1660099529766FC000E6A546 /* ChallengeFriendSheetView.swift in Sources */,
+				1660099529766FC000E6A546 /* FriendView.swift in Sources */,
 				36C7BB7D2977B37200A3F999 /* OnBoardView2.swift in Sources */,
 				36338AFD298B5B22009ABB77 /* DivideFriendCell.swift in Sources */,
 				4C407A74297A5B1900877360 /* LocalNotification.swift in Sources */,
 				16526E87298BA74000ED023A /* GameRequestAlertViewCell.swift in Sources */,
-				163CB2C6299A0595008506FD /* RealtimeListenerDataSource.swift in Sources */,
 				1642F3FC298E893D0085FF00 /* MultiProgressBar.swift in Sources */,
 				36352762298299F80037BD1B /* CustomAlertView.swift in Sources */,
 				3607264029960C320088348B /* AppDI.swift in Sources */,
@@ -847,7 +617,6 @@
 				161398FC2983F863002A6F16 /* SpendingWriteViewModel.swift in Sources */,
 				36DB97792976526900A0596F /* ViewModifier.swift in Sources */,
 				165541E8298CC19600500895 /* ChallengeProgressView.swift in Sources */,
-				163CB2C4299A051E008506FD /* FriendListenerRepository.swift in Sources */,
 				63AC1FE8298FC8A4004E24F1 /* NotificationToggle.swift in Sources */,
 				6310324B2978322900F3A463 /* Extension+NavigationController.swift in Sources */,
 				C0F5FFC4297669AA0021FF4F /* ChallengeRecordView.swift in Sources */,
