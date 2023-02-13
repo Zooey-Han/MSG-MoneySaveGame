@@ -19,7 +19,7 @@ struct GameSettingView: View {
     @EnvironmentObject var notiManager: NotificationManager
     @StateObject private var gameSettingViewModel = GameSettingViewModel()
     @State private var isShowingAlert: Bool = false
-    @EnvironmentObject var friendViewModel: FriendViewModel
+    @EnvironmentObject var friendViewModel: ChallengeFriendViewModel
     @EnvironmentObject var realtimeViewModel: RealtimeViewModel
     @EnvironmentObject var fireStoreViewModel: FireStoreViewModel
     @State private var selected: Int = 0
@@ -292,7 +292,7 @@ extension GameSettingView {
                                         .foregroundColor(realtimeViewModel.inviteFriendArray.isEmpty ? Color("Color3") : Color("Color2"))
                                 }
                                 .sheet(isPresented: $findFriendToggle) {
-                                    FriendView(findFriendToggle: $findFriendToggle)
+                                    ChallengeFriendSheetView()
                                         .presentationDetents([.height(350)])
                                         .presentationDragIndicator(.visible)
                                 }
@@ -442,7 +442,7 @@ struct GameSettingView_Previews: PreviewProvider {
     static var previews: some View {
         GameSettingView()
             .environmentObject(NotificationManager())
-            .environmentObject(FriendViewModel())
+            .environmentObject(ChallengeFriendViewModel())
             .environmentObject(RealtimeViewModel())
             .environmentObject(FireStoreViewModel())
         

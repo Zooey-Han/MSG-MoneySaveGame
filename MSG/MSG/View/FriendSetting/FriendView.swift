@@ -1,23 +1,25 @@
 //
-//  FriendView.swift
+//  DivideFriendView.swift
 //  MSG
 //
-//  Created by kimminho on 2023/01/17.
+//  Created by sehooon on 2023/02/02.
 //
 
 import SwiftUI
 
 struct FriendView: View {
-    
     @EnvironmentObject var fireStoreViewModel: FireStoreViewModel
     @EnvironmentObject var realtimeViewModel: RealtimeViewModel
-    @StateObject var friendViewModel = FriendViewModel()
+    @StateObject var friendViewModel = DivideFriendViewModel()
     @Binding var findFriendToggle: Bool
     @State var checked = false
-    
 }
 
 extension FriendView {
+    
+    // 1. baseUserArray
+    // 2. SearchUserArray
+    // 3. MyFriendArray
     
     var body: some View {
         
@@ -25,9 +27,7 @@ extension FriendView {
             ZStack {
                 Color("Color1")
                     .ignoresSafeArea()
-                
                 VStack {
-                    if !findFriendToggle {
                         ZStack {
                             RoundedRectangle(cornerRadius: 15)
                                 .stroke(Color("Color1"),
@@ -49,51 +49,26 @@ extension FriendView {
                             .padding(.vertical)
                             .padding(.horizontal)
                         }
-                    }
                     
                     ScrollView {
-                        if !findFriendToggle {
-                            ForEach(friendViewModel.searchUserArray) { user in
-                                FriendViewCell(user: user, friendViewModel: friendViewModel,findFriendToggle: $findFriendToggle,checked: $checked)
+                            ForEach(friendViewModel.baseUserArray) { user in
+                                DivideFriendCell(user: user, friendViewModel: friendViewModel,findFriendToggle: $findFriendToggle,checked: $checked)
                                     .frame(height: 60)
                                     .listRowBackground(Color("Color1"))
                                     .listRowSeparator(.hidden)
                             }
-                        }
-                        else {
-                            if friendViewModel.myFrinedArray.isEmpty {
-                                VStack{
-                                    Text("현재 추가되어있는 친구가 없습니다.")
-                                        .modifier(TextModifier(fontWeight: FontCustomWeight.bold, fontType: FontCustomType.title2, color: FontCustomColor.color2))
-                                        .padding(.bottom, 1)
-                                      
-                                    Text("친구목록에서 친구를 추가해주세요!")
-                                        .modifier(TextModifier(fontWeight: FontCustomWeight.normal, fontType: FontCustomType.body, color: FontCustomColor.color2))
-                                       
-                                } .frame(width: g.size.width / 1.04, height: g.size.height / 1)
-                            } else if friendViewModel.notGamePlayFriend.isEmpty {
-                                VStack{
-                                    
-                                    Text("현재 모든 친구가 도전중입니다.")
-                                        .modifier(TextModifier(fontWeight: FontCustomWeight.bold, fontType: FontCustomType.title2, color: FontCustomColor.color2))
-                                        .frame(width: g.size.width / 1.04, height: g.size.height / 1)
-                                }
-                            } else {
-                                
-                                ForEach(friendViewModel.notGamePlayFriend) { user in
-                                    FriendViewCell(user: user, friendViewModel: friendViewModel,findFriendToggle: $findFriendToggle,checked: $checked)
-                                        .frame(height: 60)
-                                        .listRowBackground(Color("Color1"))
-                                        .listRowSeparator(.hidden)
-                                }
-                            }
-                        }
                     }
                 }
             }
             .onAppear {
                 Task {
+<<<<<<< Updated upstream:MSG/MSG/View/FriendSetting/FriendView.swift
                     try await friendViewModel.findFriend()
+=======
+                    friendViewModel.subscribe()
+                    try await friendViewModel.findFriend()
+                    friendViewModel.baseUserArray = await friendViewModel.makeProfile(friendViewModel.myFrinedArray) ?? []
+>>>>>>> Stashed changes:MSG/MSG/Presentation/View/FriendSetting/FriendView.swift
                     friendViewModel.findUser1(text: fireStoreViewModel.myFrinedArray)
                 }
                 print("== FriendVeiw onAppear ==")
@@ -101,10 +76,13 @@ extension FriendView {
             }
             .modifier(TextModifier(fontWeight: FontCustomWeight.normal, fontType: FontCustomType.body, color: FontCustomColor.color2))
         }
+        .onTapGesture {
+            self.endTextEditing()
+        }
     }
 }
 
-struct FriendView_Previews: PreviewProvider {
+struct DivideFriendView_Previews: PreviewProvider {
     static var previews: some View {
         FriendView(findFriendToggle: .constant(false))
     }
