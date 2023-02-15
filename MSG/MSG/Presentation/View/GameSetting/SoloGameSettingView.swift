@@ -14,14 +14,9 @@ struct SoloGameSettingView: View {
         case limitMoney
     }
     @FocusState private var focusedField: Field?
-    @ObservedObject var gameSettingViewModel = GameSettingViewModel()
-    @State private var backBtnAlert: Bool = false
-    @State private var isShowingAlert: Bool = false
+    @StateObject private var gameSettingViewModel = GameSettingViewModel()
     @EnvironmentObject var notiManager: NotificationManager
     @Environment(\.dismiss) var dismiss
-    
-    // 챌린지 기간 설정 시트
-    @State private var showingDaySelection: Bool = false
     
     var body: some View {
         
@@ -151,7 +146,7 @@ struct SoloGameSettingView: View {
                                 Spacer()
                                 
                                 Button {
-                                    showingDaySelection.toggle()
+                                    gameSettingViewModel.showingDaySelection.toggle()
                                 } label: {
                                     
                                     Image(systemName: "chevron.backward")
@@ -159,7 +154,7 @@ struct SoloGameSettingView: View {
                                         .foregroundColor(gameSettingViewModel.daySelection == 5 ? Color("Color3") : Color("Color2"))
                                     
                                 }
-                                .sheet(isPresented: $showingDaySelection) {
+                                .sheet(isPresented: $gameSettingViewModel.showingDaySelection) {
                                     ZStack {
                                         Color("Color1").ignoresSafeArea()
                                         VStack {
@@ -169,9 +164,7 @@ struct SoloGameSettingView: View {
                                                 HStack {
                                                     ForEach(gameSettingViewModel.dayArray.indices, id: \.self) { index in
                                                         Button {
-                                                            gameSettingViewModel.daySelection = index
-                                                            gameSettingViewModel.startDate = Date().timeIntervalSince1970
-                                                            gameSettingViewModel.endDate = gameSettingViewModel.startDate + Double(86400) * gameSettingViewModel.dayMultiArray[index]
+                                                            gameSettingViewModel.selectChallengeDay(index)
                                                         } label: {
                                                             Text("\(gameSettingViewModel.dayArray[index])")
                                                                 .frame(width: g.size.width / 7, height: g.size.height / 20)
@@ -194,7 +187,7 @@ struct SoloGameSettingView: View {
                                             Divider()
                                             
                                             Button {
-                                                showingDaySelection.toggle()
+                                                gameSettingViewModel.showingDaySelection.toggle()
                                             } label: {
                                                 Text("닫기")
                                                     .modifier(TextModifier(fontWeight: FontCustomWeight.bold, fontType: FontCustomType.title3, color: FontCustomColor.color2))
@@ -245,17 +238,17 @@ struct SoloGameSettingView: View {
                         .padding([.leading, .bottom, .trailing])
                     }
                     .disabled(!gameSettingViewModel.isGameSettingValid)
-                        .alert("챌린지를 시작하시겠습니까?", isPresented: $isShowingAlert, actions: {
+                    .alert("챌린지를 시작하시겠습니까?", isPresented: $gameSettingViewModel.isShowingAlert, actions: {
                             Button("시작하기") {
                                 Task{
                                     if !notiManager.isGranted {
+                                        await gameSettingViewModel.createSingleChallenge()
                                         dismiss()
                                     } else {
                                         print("도전장 보내짐")
                                         let localNotification = LocalNotification(identifier: UUID().uuidString, title: "챌린지가 시작되었습니다!", body: "지출을 추가해 기록을 작성해보세요", timeInterval: 1, repeats: false)
-                                        dismiss()
-                                        // 새롭게 추가
                                         await gameSettingViewModel.createSingleChallenge()
+                                        dismiss()
                                         await notiManager.schedule(localNotification: localNotification)
                                         await notiManager.doSomething()
                                         await notiManager.getPendingRequests()
@@ -278,10 +271,7 @@ struct SoloGameSettingView: View {
                 .modifier(TextModifier(fontWeight: FontCustomWeight.normal, fontType: FontCustomType.body, color: FontCustomColor.color2))
             }
             .onAppear {
-                //(1)날짜 셋팅 초기화
-                gameSettingViewModel.daySelection = 5
-                gameSettingViewModel.startDate = Date().timeIntervalSince1970 + gameSettingViewModel.dayMultiArray[0]
-                gameSettingViewModel.endDate = gameSettingViewModel.startDate + Double(86400) * gameSettingViewModel.dayMultiArray[0]
+                gameSettingViewModel.resetInputData()
             }
         }
         .ignoresSafeArea(.keyboard)
@@ -289,7 +279,7 @@ struct SoloGameSettingView: View {
         .onTapGesture {
             self.endTextEditing()
         }
-        .alert("작성을 중단하시겠습니까?", isPresented: $backBtnAlert, actions: {
+        .alert("작성을 중단하시겠습니까?", isPresented: $gameSettingViewModel.backBtnAlert, actions: {
             
             Button {
                 
@@ -311,7 +301,7 @@ struct SoloGameSettingView: View {
         .toolbar{
             ToolbarItemGroup(placement: .navigationBarLeading) {
                 Button {
-                    backBtnAlert = true
+                    gameSettingViewModel.backBtnAlert = true
                 } label: {
                     Image(systemName:"chevron.backward")
                 }
